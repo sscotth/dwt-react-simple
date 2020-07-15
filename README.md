@@ -3,12 +3,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). It utilizes the SDK [Dynamic Web TWAIN](https://www.dynamsoft.com/Products/WebTWAIN_Overview.aspx) to provide the following functionalities
 
 * Scan documents from physical scanners
-* Capture images from Webcams
 * Read local documents (bmp/jpg/png/tif/pdf)
-* View and process the documents already scanned/captured/read
-    * Simple edits (rotate/flip/mirror/crop, etc.)
-    * Save locally or upload to the server
-    * Extract barcode or text
 
 ## Available Scripts
 
