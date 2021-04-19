@@ -14,8 +14,8 @@ export default class DWT extends React.Component {
     width = "100%";
     height = "600";
     componentDidMount() {
-        Dynamsoft.WebTwainEnv.RegisterEvent('OnWebTwainReady', () => {
-            this.DWObject = Dynamsoft.WebTwainEnv.GetWebTwain(this.containerId);
+        Dynamsoft.DWT.RegisterEvent('OnWebTwainReady', () => {
+            this.DWObject = Dynamsoft.DWT.GetWebTwain(this.containerId);
             if (this.DWObject) {
                 let vCount = this.DWObject.SourceCount;
                 let sourceNames = [];
@@ -27,13 +27,13 @@ export default class DWT extends React.Component {
         this.loadDWT();
     }
     loadDWT() {
-        Dynamsoft.WebTwainEnv.ProductKey = this.props.productKey;
-        Dynamsoft.WebTwainEnv.ResourcesPath = "dwt-resources";
-        Dynamsoft.WebTwainEnv.Containers = [{ ContainerId: this.containerId, Width: this.width, Height: this.height }];
+        Dynamsoft.DWT.ProductKey = this.props.productKey;
+        Dynamsoft.DWT.ResourcesPath = "dwt-resources";
+        Dynamsoft.DWT.Containers = [{ ContainerId: this.containerId, Width: this.width, Height: this.height }];
         let checkScriptLoaded = () => {
             if (Dynamsoft.Lib.detect.scriptLoaded) {
                 this.modulizeInstallJS();
-                Dynamsoft.WebTwainEnv.Load();
+                Dynamsoft.DWT.Load();
             } else {
                 setTimeout(() => {
                     checkScriptLoaded();
@@ -59,8 +59,8 @@ export default class DWT extends React.Component {
     loadImagesOrPDFs() {
         this.DWObject.IfShowFileDialog = true;
         this.DWObject.Addon.PDF.SetResolution(200);
-        this.DWObject.Addon.PDF.SetConvertMode(1/*EnumDWT_ConvertMode.CM_RENDERALL*/);
-        this.DWObject.LoadImageEx("", 5 /*EnumDWT_ImageType.IT_ALL*/,
+        this.DWObject.Addon.PDF.SetConvertMode(1/*Dynamsoft.DWT.EnumDWT_ConvertMode.CM_RENDERALL*/);
+        this.DWObject.LoadImageEx("", 5 /*Dynamsoft.DWT.EnumDWT_ImageType.IT_ALL*/,
             () => { },
             (errorCode, errorString) => alert(errorString));
     }
