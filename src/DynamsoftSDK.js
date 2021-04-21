@@ -30,9 +30,27 @@ export default class DWT extends React.Component {
         Dynamsoft.DWT.ProductKey = this.props.productKey;
         Dynamsoft.DWT.ResourcesPath = "dwt-resources";
         Dynamsoft.DWT.Containers = [{ ContainerId: this.containerId, Width: this.width, Height: this.height }];
+
+        window.OnWebTwainNotFoundOnWindowsCallback = ()  => {
+            alert('OnWebTwainNotFoundOnWindowsCallback')
+        }
+
+        window.OnWebTwainNotFoundOnLinuxCallback = ()  => {
+            alert('OnWebTwainNotFoundOnLinuxCallback')
+        }
+
+        window.OnWebTwainNotFoundOnMacCallback = ()  => {
+            alert('OnWebTwainNotFoundOnMacCallback')
+        }
+
+        window.OnRemoteWebTwainNotFoundCallback = ()  => {
+            alert('OnRemoteWebTwainNotFoundCallback')
+        }
+
         let checkScriptLoaded = () => {
             if (Dynamsoft.Lib.detect.scriptLoaded) {
                 this.modulizeInstallJS();
+                alert('Dynamsoft.DWT.Load()')
                 Dynamsoft.DWT.Load();
             } else {
                 setTimeout(() => {
