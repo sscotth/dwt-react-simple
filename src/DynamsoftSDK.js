@@ -125,5 +125,12 @@ export default class DWT extends React.Component {
         window.OnRemoteWebTwainNeedUpgradeCallback = (...args) => _OnRemoteWebTwainNeedUpgradeCallback.call({ Dynamsoft: Dynamsoft }, ...args);
         let _OnWebTWAINDllDownloadFailure = window.OnWebTWAINDllDownloadFailure;
         window.OnWebTWAINDllDownloadFailure = (...args) => _OnWebTWAINDllDownloadFailure.call({ Dynamsoft: Dynamsoft }, ...args);
+
+        let _OnWebTwainNotFoundOnWindowsCallback = window.OnWebTwainNotFoundOnWindowsCallback;
+        window.OnWebTwainNotFoundOnWindowsCallback = (...args) => _OnWebTwainNotFoundOnWindowsCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnWebTwainNotFoundOnLinuxCallback = window.OnWebTwainNotFoundOnLinuxCallback;
+        window.OnWebTwainNotFoundOnLinuxCallback = (...args) => _OnWebTwainNotFoundOnLinuxCallback.call({ Dynamsoft: Dynamsoft }, ...args);
+        let _OnWebTwainNotFoundOnMacCallback = window.OnWebTwainNotFoundOnMacCallback;
+        window.OnWebTwainNotFoundOnMacCallback = (...args) => _OnWebTwainNotFoundOnMacCallback.call({ Dynamsoft: Dynamsoft }, ...args);
     }
 }
