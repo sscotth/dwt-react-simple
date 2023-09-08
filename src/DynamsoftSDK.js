@@ -31,7 +31,7 @@ export default class DWT extends React.Component {
         Dynamsoft.DWT.ResourcesPath = "dwt-resources";
         Dynamsoft.DWT.Containers = [{ ContainerId: this.containerId, Width: this.width, Height: this.height }];
         let checkScriptLoaded = () => {
-            if (Dynamsoft.Lib.detect.scriptLoaded) {
+            if (Dynamsoft.Lib.detect.viewerScriptLoaded) {
                 this.modulizeInstallJS();
                 Dynamsoft.DWT.Load();
             } else {
